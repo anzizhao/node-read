@@ -5,9 +5,9 @@
         "name": "Vadim Kravcenko"
     },
     "description": "Get Clean Reading Content from every web page",
-    "homepage": "https://github.com/bndr/node-read",
+    "homepage": "https://github.com/eiriklv/node-read",
     "dependencies": {
-        "fetch": "git+ssh://git@github.com:eiriklv/fetch.git",
+        "fetch": "git+https://878c3337f2ae0290ec65e461c1b6f7cc8e26c0c6:x-oauth-basic@github.com/eiriklv/fetch.git",
         "cheerio": "^0.15.0"
     },
     "devDependencies": {
@@ -27,7 +27,7 @@
     ],
     "repository": {
         "type": "git",
-        "url": "git://github.com/bndr/node-read.git"
+        "url": "git://github.com/eiriklv/node-read.git"
     },
     "scripts": {
         "test": "make test"
@@ -36,6 +36,6 @@
     "readme": "# Node-read\n\nGet Readable Content from any page. Based on Arc90's readability project.\n\n## Features\n\n1. Blazingly Fast. This project is based on Cheerio engine, which is 8x times faster than JSDOM.\n\n## Why not Node-readability\n\nBefore starting this project I used Node-readability, but the dependencies of that project plus the slowness of JSDOM made it very frustrating to work with. The compiling of contextify module (dependency of JSDOM) failed 9/10 times. And if you wanted to use node-readability with node-webkit you had to manually rebuild contextify with nw-gyp, which is not the optimal solution.\n\nSo I decided to write my own version of Arc90's Readability using the fast Cheerio engine with the least number of dependencies.\n\nThe Usage of this module is similiar to node-readability, so it's easy to switch.\n\n## Install\n\n    npm install node-read\n    \n## Usage\n\n`read(html [, options], callback)`\n\nWhere\n\n  * **html** url or html code.\n  * **options** is an optional options object\n  * **callback** is the callback to run - `callback(error, article, meta)`\n\nExample\n\n    var read = require('node-read');\n\n    read('http://howtonode.org/really-simple-file-uploads', function(err, article, res) {\n    \n      // Main Article.\n      console.log(article.content);\n      \n      // Title\n      console.log(article.title);\n\n      // HTML \n      console.log(article.html);\n      \n      // DOM\n      console.log(article.dom);\n      \n    });\n",
     "readmeFilename": "README.md",
     "bugs": {
-        "url": "https://github.com/bndr/node-read/issues"
+        "url": "https://github.com/eiriklv/node-read/issues"
     }
 }
