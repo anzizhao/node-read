@@ -7,7 +7,7 @@
     "description": "Get Clean Reading Content from every web page",
     "homepage": "https://github.com/bndr/node-read",
     "dependencies": {
-        "fetch": "*",
+        "fetch": "git+ssh://git@github.com:eiriklv/fetch.git",
         "cheerio": "^0.15.0"
     },
     "devDependencies": {
