@@ -8,7 +8,7 @@
     "homepage": "https://github.com/eiriklv/node-read",
     "dependencies": {
         "fetch": "git+https://878c3337f2ae0290ec65e461c1b6f7cc8e26c0c6:x-oauth-basic@github.com/eiriklv/fetch.git",
-        "cheerio": "^0.15.0"
+        "cheerio": "~0.17.0"
     },
     "devDependencies": {
         "mocha": "*",
