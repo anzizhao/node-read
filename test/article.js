@@ -1,7 +1,7 @@
 var read = require('../index.js')
 
 describe("Readability Test suite", function() {
-	it("should get the article Content and Title from URL", function(done) {
+	xit("should get the article Content and Title from URL", function(done) {
 		read("http://www.theguardian.com/world/2014/apr/27/ukraine-kidnapped-observers-slavyansk-vyacheslav-ponomarev", function(err, article, res) {
 			article.content.should.include("The rebels did not exhibit five members of Ukraine's armed forces captured at the same time on Friday");
 			article.title.should.include("Ukraine: kidnapped observers paraded by pro-Russian gunmen in Slavyansk");
@@ -9,7 +9,7 @@ describe("Readability Test suite", function() {
 		});
 	});
 
-	it("should get title from HTML", function(done) {
+	xit("should get title from HTML", function(done) {
 		read("<html><head><title>Random Title</title></head><body>Random Body</body></html", function(err, article, res) {
 			article.content.should.include("Random Body");
 			article.title.should.include("Random Title");
@@ -17,7 +17,7 @@ describe("Readability Test suite", function() {
 		});
 	});
 
-	it("should prefer to get title from entry-title class", function(done) {
+	xit("should prefer to get title from entry-title class", function(done) {
 		read("<html><head><title>Incorrect Title</title></head><body><h1 class=\"entry-title\">Preferred Title</h1>Random Body</body></html", function(err, article, res) {
 			article.content.should.include("Random Body");
 			article.title.should.include("Preferred Title");
@@ -25,7 +25,15 @@ describe("Readability Test suite", function() {
 		});
 	});
 
-	it("should prefer to get title from instapaper_title class", function(done) {
+
+	it("should content output ", function(done) {
+		read("<html><head><title>code test </title></head><body><pre><code class=\"hljs javascript\"><span class=\"hljs-function\"><span class=\"hljs-keyword\">function</span> <span class=\"hljs-title\">example</span>(<span class=\"hljs-params\">a, b</span>) </span>{ <span class=\"hljs-comment\">// we expect a, b to be numeric</span> <span class=\"hljs-built_in\">console</span>.log(++a * ++b); }; example(); <span class=\"hljs-comment\">// bad</span> example(<span class=\"hljs-number\">1</span>); <span class=\"hljs-comment\">// still bad</span> example(<span class=\"hljs-string\">", function(err, article, res) {
+            console.log( article.content );
+			done();
+		});
+	});
+
+	xit("should prefer to get title from instapaper_title class", function(done) {
 		read("<html><head><title>Incorrect Title</title></head><body><h1 class=\"instapaper_title\">Preferred Title</h1>Random Body</body></html", function(err, article, res) {
 			article.content.should.include("Random Body");
 			article.title.should.include("Preferred Title");
@@ -33,14 +41,14 @@ describe("Readability Test suite", function() {
 		});
 	});
 
-	it("Should throw exception if no body is present", function(done) {
+	xit("Should throw exception if no body is present", function(done) {
 		read("<html></html", function(err, article, res) {
 			err.message.should.equal("No body tag was found");
 			done();
 		});
 	});
 
-	it("Should parse sites with uncommon encoding correctly", function(done) {
+	xit("Should parse sites with uncommon encoding correctly", function(done) {
 		read("http://www.shfinancialnews.com/xww/2009jrb/node5019/node5036/node5044/userobject1ai127332.html", function(err, article, res) {
 			article.content.should.include("机构名称");
 			article.title.should.include("中国银");
@@ -50,7 +58,7 @@ describe("Readability Test suite", function() {
 
 });
 
-describe("Random Sites test", function() {
+xdescribe("Random Sites test", function() {
 	it("Article From the guardian", function(done) {
 		read("http://www.theguardian.com/world/2014/apr/27/ukraine-kidnapped-observers-slavyansk-vyacheslav-ponomarev", function(err, article, res) {
 			article.content.should.include("The rebels did not exhibit five members of Ukraine's armed forces captured at the same time on Friday");
